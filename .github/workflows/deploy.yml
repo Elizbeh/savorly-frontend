@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # Or 'main' depending on your branch name
 
 jobs:
   build-and-deploy:
@@ -13,10 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+          cache: 'npm'
+
+      - name: Create .env.production for Vite
+        run: |
+          echo "VITE_API_URL=https://savorly-backend-c6hu.onrender.com" >> frontend/savorly-frontend/.env.production
+          echo "VITE_CLIENT_URL=https://elizbeh.github.io/savorly-frontend" >> frontend/savorly-frontend/.env.production
 
       - name: Install dependencies
         run: npm install

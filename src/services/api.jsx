@@ -2,7 +2,7 @@ import axios from 'axios';
 import https from 'https';  // Import the https module
 
 // Define the HTTPS base URL
-const API_BASE_URL = 'https://localhost:5001';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Create an Axios instance
 const api = axios.create({
