@@ -1,5 +1,5 @@
 import axios from 'axios';
-import https from 'https';  // Import the https module
+
 
 // Define the HTTPS base URL
 const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -8,9 +8,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const api = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,  // Ensure cookies are included in requests
-  httpsAgent: new https.Agent({
-    rejectUnauthorized: false,  // Allow self-signed certificates during local development (only for dev!)
-  }),
+  
 });
 
 // Add an interceptor for handling errors
