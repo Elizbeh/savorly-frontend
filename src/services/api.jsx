@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import https from 'https';  // Import the https module
 
 // Define the HTTPS base URL
 const API_BASE_URL = import.meta.env.VITE_API_URL;
