@@ -19,7 +19,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <div style={{ padding: '2rem', textAlign: 'center' }}>
-          <h1>Something went wrong.</h1>
+          <h1>Something went wronng.</h1>
           <p>{this.state.error?.message || 'An unexpected error occurred.'}</p>
           <button onClick={() => window.location.reload()}>Reload</button>
         </div>
