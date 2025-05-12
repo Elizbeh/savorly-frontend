@@ -10,7 +10,7 @@ const api = axios.create({
   withCredentials: true,
 });
 
-// Axios interceptor for auth errors (like expired tokens)
+// Axios interceptor for auth errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
