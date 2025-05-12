@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 const isDev = process.env.NODE_ENV !== 'production';
 
-// SSL cert paths (used only in dev)
+// SSL cert paths (dev only)
 const keyPath = path.resolve(__dirname, '../../backend/cert/key.pem');
 const certPath = path.resolve(__dirname, '../../backend/cert/cert.pem');
 
