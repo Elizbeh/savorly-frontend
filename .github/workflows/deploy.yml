@@ -1,13 +1,17 @@
-name: Deploy to GitHub Pages
+name: Deploy savorly-frontend to GitHub Pages
 
 on:
   push:
     branches:
-      - master  # Or 'main' depending on your branch name
+      - master
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend/savorly-frontend
 
     steps:
       - name: Checkout code
@@ -16,24 +20,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: 'npm'
-
-      - name: Create .env.production for Vite
-        run: |
-          echo "VITE_API_URL=https://savorly-backend-c6hu.onrender.com" >> frontend/savorly-frontend/.env.production
-          echo "VITE_CLIENT_URL=https://elizbeh.github.io/savorly-frontend" >> frontend/savorly-frontend/.env.production
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm install
-        working-directory: frontend/savorly-frontend
+        run: npm ci
 
-      - name: Build app
+      - name: Build the app
         run: npm run build
-        working-directory: frontend/savorly-frontend
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
-        working-directory: frontend/savorly-frontend

@@ -1,11 +1,5 @@
-// App.jsx
 import React from "react";
-import {
-  useLocation,
-  Routes,
-  Route
-} from "react-router-dom";
-
+import { useLocation, Routes, Route, Navigate } from "react-router-dom";
 import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import CategoryPage from './pages/CategoryPage';
@@ -22,12 +16,12 @@ import { useAuth } from './contexts/AuthContext';
 import AboutPage from './pages/AboutPage';
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-
 import './App.css';
+
 
 const AppContent = () => {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user } = useAuth(); // ✅ use context for Navbar access
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const toggleMobileMenu = () => {
@@ -44,6 +38,7 @@ const AppContent = () => {
         />
       )}
 
+      {/* ✅ Apply paddingTop only if Navbar is visible */}
       <main
         style={{
           paddingTop: !["/login", "/register", "/verify-email"].includes(location.pathname)
@@ -71,8 +66,9 @@ const AppContent = () => {
   );
 };
 
+// ✅ Wrap entire App in AuthProvider
 function App() {
-  return <AppContent />;
+  return <AppContent />
 }
 
 export default App;

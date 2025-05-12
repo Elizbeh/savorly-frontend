@@ -101,7 +101,7 @@ const RecipeCard = ({ recipe, onDelete, onSave }) => {
         const isNowSaved = !saved; 
         setSaved(isNowSaved);
 
-        // Update parent component with the saved status
+        // Update parent component (HomePage) with the saved status
         if (onSave) {
           onSave(recipe, isNowSaved);
         }

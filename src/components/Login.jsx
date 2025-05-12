@@ -39,30 +39,30 @@ const Login = () => {
         navigate("/home");
       }
       
-        } catch (err) {
-          console.error("Login error:", err);
-          const errorMsg = err.response?.data?.message || "Something went wrong. Please try again later.";
-          setError(errorMsg);
-          console.log("Error state:", errorMsg);
+    } catch (err) {
+      console.error("Login error:", err);
+      const errorMsg = err.response?.data?.message || "Something went wrong. Please try again later.";
+      setError(errorMsg);
+      console.log("Error state:", errorMsg);
 
-        }
-        
-      };
-      
-      return (
-        <div className="login-container">
-          <div className="login-image"></div>
-           <div className="login-form-wrapper">
-              <img src={savorlyLogo} alt="Savorly Logo" className="login-logo"  />
-              <p className="subtitle">Log in to explore delicious recipes!</p>
+    }
+    
+  };
 
-              <form onSubmit={handleSubmit} className="login-form">
-              {error && (
-              <p className="error-message">
-              <i className="fa fa-exclamation-circle error-icon" aria-hidden="true"></i>
-            {error}
-            </p>
-          )}
+  return (
+    <div className="login-container">
+      <div className="login-image"></div>
+      <div className="login-form-wrapper">
+        <img src={savorlyLogo} alt="Savorly Logo" className="login-logo"  />
+        <p className="subtitle">Log in to explore delicious recipes!</p>
+
+        <form onSubmit={handleSubmit} className="login-form">
+        {error && (
+  <p className="error-message">
+    <i className="fa fa-exclamation-circle error-icon" aria-hidden="true"></i>
+    {error}
+  </p>
+)}
 
           <div className="form-group">
             <input

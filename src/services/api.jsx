@@ -1,23 +1,26 @@
 import axios from 'axios';
+import https from 'https';  // Import the https module
 
-// API base URL from environment (.env.local or .env.production)
+// Define the HTTPS base URL
 const API_BASE_URL = import.meta.env.VITE_API_URL;
-const CLIENT_URL = import.meta.env.VITE_CLIENT_URL;
 
-// Create Axios instance
+// Create an Axios instance
 const api = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false,
+  }),
 });
 
-// Axios interceptor for auth errors
+// Add an interceptor for handling errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Avoid redirect loop on login page
-      if (!window.location.pathname.includes('/login')) {
-        window.location.href = `${CLIENT_URL}/login`;
+      // Avoid redirect loop
+      if (window.location.pathname !== '/login') {
+        window.location.href = '/login';
       }
     } else {
       console.error('API Error:', error.response?.data || error.message);
@@ -25,5 +28,6 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 
 export default api;
