@@ -8,9 +8,9 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const api = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
-  httpsAgent: new https.Agent({
-    rejectUnauthorized: false,
-  }),
+  //httpsAgent: new https.Agent({
+    //rejectUnauthorized: false,
+  //}),
 });
 
 // Add an interceptor for handling errors
