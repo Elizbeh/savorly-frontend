@@ -16,8 +16,16 @@ const isDev = process.env.NODE_ENV !== 'production';
 const keyPath = path.resolve(__dirname, '../../backend/cert/key.pem');
 const certPath = path.resolve(__dirname, '../../backend/cert/cert.pem');
 
+const httpsConfig =
+  isDev && fs.existsSync(keyPath) && fs.existsSync(certPath)
+    ? {
+        key: fs.readFileSync(keyPath),
+        cert: fs.readFileSync(certPath),
+      }
+    : undefined;
+
 export default defineConfig({
-   base: isDev ? '/' : '/savorly-frontend/',
+  base: isDev ? '/' : '/savorly-frontend/',
   plugins: [
     react(),
     removeConsole(),
@@ -32,7 +40,7 @@ export default defineConfig({
         ]
       : []),
   ],
-  
+
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
@@ -42,32 +50,29 @@ export default defineConfig({
   },
 
   optimizeDeps: {
-    // Only necessary if you're accidentally importing server-side deps in frontend
     exclude: ['bcryptjs', 'mysql2'],
+    include: ['crypto', 'events'],
   },
 
   server: {
-    ...(isDev && {
-      https: {
-        key: fs.readFileSync(keyPath),
-        cert: fs.readFileSync(certPath),
-      },
-    }),
+    https: httpsConfig,
     watch: {
       usePolling: true,
     },
-    proxy: {
-      '/api': {
-        target: 'https://localhost:5001',
-        changeOrigin: true,
-        secure: false,
+    ...(isDev && {
+      proxy: {
+        '/api': {
+          target: 'https://localhost:5001',
+          changeOrigin: true,
+          secure: false,
+        },
+        '/uploads': {
+          target: 'https://localhost:5001',
+          changeOrigin: true,
+          secure: false,
+        },
       },
-      '/uploads': {
-        target: 'https://localhost:5001',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
+    }),
   },
 
   test: {

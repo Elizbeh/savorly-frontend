@@ -1,5 +1,16 @@
 import axios from 'axios';
-import https from 'https';  // Import the https module
+
+// Only import `https` in development for self-signed cert bypass
+const isDev = import.meta.env.MODE === 'development';
+let httpsAgent;
+
+if (isDev) {
+  // Dynamically import 'https' only in development to avoid bundling it in production
+  const httpsModule = await import('https');
+  httpsAgent = new httpsModule.Agent({
+    rejectUnauthorized: false, // Allow self-signed certs in dev
+  });
+}
 
 // Define the HTTPS base URL
 const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -8,9 +19,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const api = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
-  //httpsAgent: new https.Agent({
-    //rejectUnauthorized: false,
-  //}),
+  ...(isDev && httpsAgent ? { httpsAgent } : {}), // Only add httpsAgent in dev
 });
 
 // Add an interceptor for handling errors
@@ -18,7 +27,6 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Avoid redirect loop
       if (window.location.pathname !== '/login') {
         window.location.href = '/login';
       }
@@ -28,6 +36,5 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
 
 export default api;
