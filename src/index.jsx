@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,10 +11,10 @@ const basename = import.meta.env.DEV ? '/' : '/savorly-frontend';
 
 root.render(
   <React.StrictMode>
-      <BrowserRouter basename={basename}>
+      <Router basename={basename}>
         <AuthProvider>
           <App />
         </AuthProvider>
-      </BrowserRouter>
+      </Router>
   </React.StrictMode>
 );
