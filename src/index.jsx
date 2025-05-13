@@ -7,7 +7,6 @@ import { AuthProvider } from './contexts/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Set basename to match your GitHub Pages path
 const basename = import.meta.env.MODE === 'production' ? '/savorly-frontend' : '/';
 
 root.render(
