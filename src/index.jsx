@@ -11,7 +11,7 @@ const basename = import.meta.env.DEV ? '/' : '/savorly-frontend';
 
 root.render(
   <React.StrictMode>
-      <Router basename={basename}>
+      <Router>
         <AuthProvider>
           <App />
         </AuthProvider>
