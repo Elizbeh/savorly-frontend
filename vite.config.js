@@ -25,11 +25,11 @@ const httpsConfig =
     : undefined;
 
 export default defineConfig({
-  base: isDev ? '/' : '/savorly-frontend/',
+  base: '/savorly-frontend/',
   plugins: [
     react(),
     removeConsole(),
-    ...(isDev
+    ...(base
       ? [
           nodePolyfills({
             protocol: true,

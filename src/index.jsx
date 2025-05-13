@@ -7,11 +7,11 @@ import { AuthProvider } from './contexts/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const basename = import.meta.env.DEV ? '/' : '/savorly-frontend';
+const basename = import.meta.env.MODE === 'production' ? '/savorly-frontend' : '/';
 
 root.render(
   <React.StrictMode>
-      <Router>
+      <Router basename={basename}>
         <AuthProvider>
           <App />
         </AuthProvider>
