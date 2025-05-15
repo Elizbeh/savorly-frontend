@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // Only import `https` in development for self-signed cert bypass
-const isDev = import.meta.env.MODE === 'development';
+const isDev = import.meta.env.DEV;
+
 let httpsAgent;
 
 if (isDev) {
@@ -17,10 +18,11 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Create an Axios instance
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
-  ...(isDev && httpsAgent ? { httpsAgent } : {}), // Only add httpsAgent in dev
+  ...(isDev && httpsAgent ? { httpsAgent } : {}), // Only for dev
 });
+
 
 // Add an interceptor for handling errors
 api.interceptors.response.use(

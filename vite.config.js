@@ -18,6 +18,9 @@ const certPath = path.resolve(__dirname, '../../backend/cert/cert.pem');
 
 export default defineConfig({
    base: isDev ? '/' : '/savorly-frontend/',
+    build: {
+    outDir: 'dist',
+  },
   plugins: [
     react(),
     removeConsole(),
