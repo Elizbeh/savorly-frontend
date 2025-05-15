@@ -11,7 +11,7 @@ import HomePage from './pages/Home';
 import RecipeForm from './pages/RecipeFormPage';
 import ProfilePage from './pages/Profile';
 import SavedRecipes from './pages/SavedRecipes';
-import VerifyEmail from "./components/verifyEmail";
+import VerifyEmail from "./components/VerifyEmail";
 import { useAuth } from './contexts/AuthContext';
 import AboutPage from './pages/AboutPage';
 import AdminDashboard from "./pages/AdminDashboard";
