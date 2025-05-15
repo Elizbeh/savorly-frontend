@@ -23,6 +23,7 @@
     "@testing-library/react": "^16.3.0",
     "@vitejs/plugin-react": "^4.3.4",
     "jsdom": "^26.1.0",
+    "rimraf": "^6.0.1",
     "vite": "^6.2.1",
     "vite-plugin-node-polyfills": "^0.23.0",
     "vite-plugin-remove-console": "^2.2.0",
@@ -31,7 +32,8 @@
   "homepage": "https://elizbeh.github.io/savorly-frontend",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "clean": "rimraf dist",
+    "build": "npm run clean && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "vitest",
