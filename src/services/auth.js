@@ -8,7 +8,12 @@ export const loginUser = async ({ email, password }) => {
 
   if (!token) throw new Error("Token missing in response");
 
-  Cookies.set("authToken", token, { expires: 7, sameSite: "Strict", path: '/' });
+  Cookies.set("authToken", token, {
+  expires: 7,
+  sameSite: "None",
+  secure: true,
+  path: '/',
+});
 
   return user;
 };
