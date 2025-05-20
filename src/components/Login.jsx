@@ -19,6 +19,19 @@ const Login = () => {
     e.preventDefault();
     console.log("Form submitted");
     setError("");
+
+     // Test the Origin by hitting /test-origin endpoint
+  try {
+    const originRes = await fetch(`${import.meta.env.VITE_API_URL}/test-origin`, {
+      method: 'GET',
+      credentials: 'include',
+    });
+    const originData = await originRes.json();
+    console.log('Backend saw origin:', originData.origin);
+  } catch (err) {
+    console.error('Origin test failed:', err);
+  }
+
   
     // Validate email and password using the imported functions
     if (!validateEmail(email)) return setError("Invalid email format");
