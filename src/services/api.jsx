@@ -14,8 +14,7 @@ if (isDev) {
 }
 
 // Define the HTTPS base URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://localhost:5001';
-
+const basePath = import.meta.env.BASE_URL || '/';
 // Create an Axios instance
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -25,13 +24,13 @@ const api = axios.create({
 
 
 // Add an interceptor for handling errors
+
 api.interceptors.response.use(
-  
-  (response) => response,
-  (error) => {
+  response => response,
+  error => {
     if (error.response?.status === 401) {
-      if (window.location.pathname !== '/login') {
-        window.location.href = '/login';
+      if (!window.location.hash.includes('#/login')) {
+        window.location.href = `${basePath}#/login`;
       }
     } else {
       console.error('API Error:', error.response?.data || error.message);
@@ -39,5 +38,6 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 
 export default api;
