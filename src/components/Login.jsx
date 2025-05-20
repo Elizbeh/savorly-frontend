@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import "font-awesome/css/font-awesome.min.css";
@@ -71,11 +71,11 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="login-form">
         {error && (
-  <p className="error-message">
-    <i className="fa fa-exclamation-circle error-icon" aria-hidden="true"></i>
-    {error}
-  </p>
-)}
+            <p className="error-message">
+              <i className="fa fa-exclamation-circle error-icon" aria-hidden="true"></i>
+              {error}
+            </p>
+          )}
 
           <div className="form-group">
             <input
