@@ -28,6 +28,8 @@ jobs:
       - name: Build the app
         env:
           ROLLUP_DISABLE_NATIVE: 1
+          VITE_API_URL: https://savorly-backend-c6hu.onrender.com
+          VITE_CLIENT_URL: https://elizbeh.github.io
         run: npm run build
 
       - name: Set Git user
