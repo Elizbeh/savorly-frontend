@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Only import `https` in development for self-signed cert bypass
+// import `https` in development for self-signed cert bypass
 const isDev = import.meta.env.DEV;
 
 let httpsAgent;

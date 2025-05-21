@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
-import Footer from '../components/Footer'; // Adjust the path as needed
+import Footer from '../components/Footer';
 
 const AboutPage = () => {
   return (

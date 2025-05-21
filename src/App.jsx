@@ -21,7 +21,7 @@ import './App.css';
 
 const AppContent = () => {
   const location = useLocation();
-  const { user } = useAuth(); // ✅ use context for Navbar access
+  const { user } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const toggleMobileMenu = () => {
