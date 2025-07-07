@@ -1,5 +1,5 @@
-import React from "react";
-import { useLocation, Routes, Route, Navigate } from "react-router-dom";
+import React from "react"; 
+import { useLocation, Routes, Route } from "react-router-dom";
 import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import CategoryPage from './pages/CategoryPage';
@@ -16,8 +16,8 @@ import { useAuth } from './contexts/AuthContext';
 import AboutPage from './pages/AboutPage';
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer";
 import './App.css';
-
 
 const AppContent = () => {
   const location = useLocation();
@@ -28,9 +28,12 @@ const AppContent = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+  // Controls visibility of Navbar and Footer on these routes
+  const hideNavbarAndFooter = ["/login", "/register", "/verify-email"].includes(location.pathname);
+
   return (
     <ErrorBoundary>
-      {!["/login", "/register", "/verify-email"].includes(location.pathname) && (
+      {!hideNavbarAndFooter && (
         <Navbar
           user={user}
           isMobileMenuOpen={isMobileMenuOpen}
@@ -38,10 +41,10 @@ const AppContent = () => {
         />
       )}
 
-      {/* ✅ Apply paddingTop only if Navbar is visible */}
+      {/* Apply padding top if navbar visible */}
       <main
         style={{
-          paddingTop: !["/login", "/register", "/verify-email"].includes(location.pathname)
+          paddingTop: !hideNavbarAndFooter
             ? "var(--navbar-height)"
             : 0
         }}
@@ -62,13 +65,14 @@ const AppContent = () => {
           <Route path="/saved-recipes" element={<ProtectedRoute element={<SavedRecipes />} />} />
         </Routes>
       </main>
+
+      {!hideNavbarAndFooter && <Footer />}
     </ErrorBoundary>
   );
 };
 
-// ✅ Wrap entire App in AuthProvider
 function App() {
-  return <AppContent />
+  return <AppContent />;
 }
 
 export default App;

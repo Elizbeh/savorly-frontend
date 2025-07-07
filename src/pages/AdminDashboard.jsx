@@ -113,7 +113,7 @@ const AdminDashboard = () => {
       <div className="category-form">
         <h2>Create New Category</h2>
         <form onSubmit={handleCreateCategory}>
-          <div>
+          <div className='form-label-input'>
             <label htmlFor="categoryName">Category Name</label>
             <input
               type="text"
