@@ -18,27 +18,29 @@ const api = axios.create({
   ...(isDev && httpsAgent ? { httpsAgent } : {}),
 });
 
+// Redirect to login with correct subpath on GitHub Pages
 const loginRedirectUrl = isProd
-  ? `${import.meta.env.VITE_CLIENT_URL}/login`
-  : `${import.meta.env.VITE_CLIENT_URL}/login`;
+  ? `${import.meta.env.VITE_CLIENT_URL}/savorly-frontend/#/login`
+  : `${import.meta.env.VITE_CLIENT_URL}/#/login`;
 
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      // Only redirect if not already on public pages like landing, login, register
-      const publicPaths = ["/", "/login", "/register", "/verify-email"];
-      const currentPath = window.location.pathname;
+// Guard the interceptor to only run in the browser
+if (typeof window !== "undefined") {
+  api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error.response?.status === 401) {
+        const publicHashes = ["", "#/", "#/login", "#/register", "#/verify-email"];
+        const currentHash = window.location.hash;
 
-      if (!publicPaths.includes(currentPath)) {
-        window.location.href = loginRedirectUrl;
+        if (!publicHashes.includes(currentHash)) {
+          window.location.href = loginRedirectUrl;
+        }
+      } else {
+        console.error("API Error:", error.response?.data || error.message);
       }
-    } else {
-      console.error("API Error:", error.response?.data || error.message);
+      return Promise.reject(error);
     }
-    return Promise.reject(error);
-  }
-);
-
+  );
+}
 
 export default api;

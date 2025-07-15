@@ -6,8 +6,6 @@ import { HashRouter as Router } from 'react-router-dom';
 //import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 
-const basename = '/savorly-frontend';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
