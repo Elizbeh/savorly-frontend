@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import handleDelete from '../../utils/handleDelete';
 
-vi.mock('axios'); // or use msw (Mock Service Worker) for more complex flows
+vi.mock('axios');
 
 vi.mock('../../services/api', () => ({
   default: {
