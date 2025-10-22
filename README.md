@@ -2,7 +2,7 @@
 
 -------------------------------
 
-`# 🥗 Savorly Frontend
+# 🥗 Savorly Frontend
 
 **Savorly** is a full-stack recipe management web application that helps users discover, create, save, and share their favorite recipes --- all within a secure, responsive interface.
 
