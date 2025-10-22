@@ -51,7 +51,8 @@ It is deployed via **GitHub Pages** and supports authentication, admin access, a
 │   └── index.css
 ├── .env.example              # Example environment variables
 ├── package.json
-└── vite.config.js```
+└── vite.config.js
+```
 
 * * * * *
 
@@ -74,17 +75,16 @@ It is deployed via **GitHub Pages** and supports authentication, admin access, a
 
 🧰 Tech Stack
 -------------
-
-| Layer | Technology |
-| --- | --- |
-| Frontend | React.js (Vite), JSX, React Router |
-| State Management | Context API |
-| Styling | CSS3, Flexbox, custom responsive design |
-| Backend API | Node.js, Express, MySQL/TiDB |
-| Deployment | GitHub Pages (Frontend), Render (Backend) |
-| Version Control | Git / GitHub |
-| Auth Security | JWT, Secure Cookies |
-| Testing (planned) | React Testing Library, Jest |
+| Layer             | Technology                                |
+| ----------------- | ----------------------------------------- |
+| Frontend          | React.js (Vite), JSX, React Router        |
+| State Management  | Context API                               |
+| Styling           | CSS3, Flexbox, custom responsive design   |
+| Backend API       | Node.js, Express, MySQL/TiDB              |
+| Deployment        | GitHub Pages (Frontend), Render (Backend) |
+| Version Control   | Git / GitHub                              |
+| Auth Security     | JWT, Secure Cookies                       |
+| Testing (planned) | React Testing Library, Jest               |
 
 * * * * *
 
@@ -123,22 +123,21 @@ Frontend will be available at: `https://localhost:5174` (with HTTPS)
 
 🔐 Routing Overview
 -------------------
-
-| Path | Component | Access |
-| --- | --- | --- |
-| `/` | LandingPage | Public |
-| `/about` | AboutPage | Public |
-| `/login` | Login | Public |
-| `/register` | Register | Public |
-| `/verify-email` | VerifyEmail | Public |
-| `/home` | HomePage | Protected |
-| `/create-recipe` | RecipeFormPage | Protected |
-| `/recipe/:id` | RecipeDetail | Public |
-| `/recipe-form/:id` | RecipeFormPage | Protected |
-| `/categories/:categoryId` | CategoryPage | Public |
-| `/profile` | ProfilePage | Protected |
-| `/saved-recipes` | SavedRecipes | Protected |
-| `/admin-dashboard` | AdminDashboard | Admin Only |
+| Path                  | Component        | Access      |
+| --------------------- | ---------------- | ----------- |
+| `/`                   | LandingPage      | Public      |
+| `/about`              | AboutPage        | Public      |
+| `/login`              | Login            | Public      |
+| `/register`           | Register         | Public      |
+| `/verify-email`       | VerifyEmail      | Public      |
+| `/home`               | HomePage         | Protected   |
+| `/create-recipe`      | RecipeFormPage   | Protected   |
+| `/recipe/:id`         | RecipeDetail     | Public      |
+| `/recipe-form/:id`    | RecipeFormPage   | Protected   |
+| `/categories/:categoryId` | CategoryPage | Public      |
+| `/profile`            | ProfilePage      | Protected   |
+| `/saved-recipes`      | SavedRecipes     | Protected   |
+| `/admin-dashboard`    | AdminDashboard   | Admin Only  |
 
 * * * * *
 
