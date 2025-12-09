@@ -120,7 +120,7 @@
 
 @media screen and (max-width: 480px) {
   .about-page {
-    padding: 2rem 0.75rem;
+    padding: 0;
   }
 
   .about-container {

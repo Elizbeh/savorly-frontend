@@ -1,3 +1,4 @@
+
 .login-container {
   display: flex;
   width: 100%;
@@ -160,4 +161,30 @@
   overflow: hidden;
   clip: rect(0 0 0 0);
   border: 0;
+}
+
+/* --- FULLSCREEN LOGIN ON SMALL DEVICES --- */
+@media (max-width: 480px) {
+  .login-container {
+    flex-direction: column;
+    padding: 0; /* remove outer padding */
+    border-radius: 0; /* remove rounded corners */
+    box-shadow: none; /* remove shadow */
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .login-form-wrapper {
+    flex: 1;
+    width: 100%;
+    margin: 0; /* remove margin */
+    padding: 2rem; /* optional padding inside the form */
+    border-radius: 0; /* remove rounded corners */
+    box-shadow: none; /* remove shadow */
+    justify-content: center;
+  }
+
+  .login-form {
+    max-width: 100%; /* make form full width */
+  }
 }
