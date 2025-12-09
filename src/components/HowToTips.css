@@ -1,9 +1,11 @@
 .how-to-tips {
   padding: 50px 20px;
-  width: 100vw;
+  width: 100%;
   background-color: #e06700;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+  margin: 0 auto;
+  margin-top: 3em;
 }
 
 .how-to-tips h2 {
@@ -19,6 +21,7 @@
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
+  width: 100vw;
 }
 
 /* GIF Styling */
