@@ -9,7 +9,6 @@
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
-  background: var(--bg-light);
 }
 
 /* ============================================
@@ -50,21 +49,16 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  
-
   min-height: 85vh;
   width: 100%;
   padding: 6rem 2rem 4rem;
-  
-  /* Background */
   background: url('../assets/images/banner.png') center center/cover no-repeat;
-  
   color: white;
   isolation: isolate;
   overflow: hidden;
 }
 
-/* Hero Overlay - Darker for better contrast */
+/* Hero Overlay */
 .home-page .hero::before {
   content: "";
   position: absolute;
@@ -94,7 +88,6 @@
   line-height: 1.1;
   text-shadow: 3px 5px 20px rgba(0, 0, 0, 0.7);
   letter-spacing: -0.03em;
-
 }
 
 /* User Greeting*/
@@ -103,7 +96,6 @@
   color: var(--neutral-50);
   margin: 0 0 2.5rem 0;
   line-height: 1.5;
-  
   font-weight: 400;
   max-width: 900px;
 }
@@ -157,12 +149,10 @@
   border-radius: 50px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
     0 10px 25px rgba(255, 138, 101, 0.4),
     0 5px 15px rgba(0, 0, 0, 0.3);
-  
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -224,11 +214,8 @@ main#main-content {
    SECTION HEADINGS
    ============================================ */
 
-  
-
 .categories h2,
-.recipe-list h2,
-.tips-section h2 {
+.recipe-list h2 {
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 800;
   margin: 0 0 1rem 0;
@@ -241,8 +228,7 @@ main#main-content {
 }
 
 .categories h2::after,
-.recipe-list h2::after,
-.tips-section h2::after {
+.recipe-list h2::after {
   content: '';
   position: absolute;
   bottom: -16px;
@@ -252,7 +238,6 @@ main#main-content {
   height: 6px;
   background: var(--gradient-primary);
   border-radius: 10px;
-  
 }
 
 /* ============================================
@@ -266,12 +251,10 @@ main#main-content {
   margin: 2.5rem auto;
   border-radius: 16px;
   max-width: 750px;
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  
   color: var(--error-text);
   font-weight: 500;
   font-size: 1.0625rem;
@@ -292,7 +275,6 @@ main#main-content {
   cursor: pointer;
   font-weight: 700;
   font-size: 1rem;
-  
   transition: all 0.3s ease;
   white-space: nowrap;
   flex-shrink: 0;
@@ -314,7 +296,7 @@ main#main-content {
    ============================================ */
 
 .categories {
-  padding: 7rem 2rem;
+  padding: 5rem 2rem;
   width: 100%;
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-warm) 100%);
 }
@@ -334,18 +316,15 @@ main#main-content {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
   background: white;
   border-radius: 24px;
   padding: 3.5rem 2.5rem;
   min-height: 160px;
-  
   text-decoration: none;
   box-shadow: 
     0 8px 16px rgba(0, 0, 0, 0.08),
     0 2px 4px rgba(0, 0, 0, 0.04);
   border: 2px solid transparent;
-  
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -418,7 +397,7 @@ main#main-content {
 
 .recipe-list {
   width: 100%;
-  padding: 7rem 2rem 6rem;
+  padding: 5rem 2rem 4rem;
   background: var(--bg-warm);
   position: relative;
 }
@@ -441,12 +420,10 @@ main#main-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  
   width: 100%;
   max-width: 1600px;
   margin: 5rem auto 0;
   padding: 4rem 2rem;
-  
   background: white;
   border-radius: 32px;
   overflow: visible;
@@ -460,12 +437,9 @@ main#main-content {
   display: flex;
   gap: 2rem;
   padding: 0 4.5rem;
-  
   overflow-x: auto;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  
-  /* Custom scrollbar */
   scrollbar-width: none;
 }
 
@@ -484,28 +458,22 @@ main#main-content {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  
   background: var(--gradient-primary);
   color: white;
   border: 3px solid white;
   border-radius: 50%;
-  
   width: 64px;
   height: 64px;
-  
   display: flex;
   align-items: center;
   justify-content: center;
-  
   font-size: 1.75rem;
   font-weight: 900;
   cursor: pointer;
   z-index: 10;
-  
   box-shadow: 
     0 8px 24px rgba(255, 138, 101, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.2);
-  
   transition: all 0.3s ease;
 }
 
@@ -535,15 +503,19 @@ main#main-content {
 }
 
 /* ============================================
-   TIPS SECTION
+   TIPS SECTION - Wrapper Only
    ============================================ */
 
 .tips-section {
   width: 100%;
-  max-width: 1400px;
-  
-  background-color: var(--primary-50);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+ 
 
 /* ============================================
    ANIMATIONS
@@ -567,8 +539,7 @@ main#main-content {
 /* LARGE SCREENS (1600px+) */
 @media screen and (min-width: 1600px) {
   .category-list,
-  .scroll-container,
-  .tips-section {
+  .scroll-container {
     max-width: 1800px;
   }
 }
@@ -592,9 +563,8 @@ main#main-content {
   }
   
   .categories,
-  .recipe-list,
-  .tips-section {
-    padding: 5rem 1.5rem;
+  .recipe-list {
+    padding: 4rem 1.5rem;
   }
   
   .category-list {
@@ -645,14 +615,12 @@ main#main-content {
   }
   
   .categories,
-  .recipe-list,
-  .tips-section {
-    padding: 4rem 0;
+  .recipe-list {
+    padding: 3rem 1rem;
   }
   
   .categories h2,
-  .recipe-list h2,
-  .tips-section h2 {
+  .recipe-list h2 {
     font-size: 2.25rem;
   }
   
@@ -723,20 +691,17 @@ main#main-content {
   }
   
   .categories,
-  .recipe-list,
-  .tips-section {
-    padding: 3rem 1rem;
+  .recipe-list {
+    padding: 2.5rem 1rem;
   }
   
   .categories h2,
-  .recipe-list h2,
-  .tips-section h2 {
+  .recipe-list h2 {
     font-size: 2rem;
   }
   
   .categories h2::after,
-  .recipe-list h2::after,
-  .tips-section h2::after {
+  .recipe-list h2::after {
     width: 80px;
     height: 5px;
   }
@@ -754,18 +719,12 @@ main#main-content {
     font-size: 1.375rem;
   }
 
-  .tips-section {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  /* Hide scroll buttons on very small screens */
+  .scroll-button {
+    display: none;
   }
-
-  /* Scroll Buttons */
-.scroll-button {
-  display: none;
 }
 
-}
 /* ============================================
    ACCESSIBILITY ENHANCEMENTS
    ============================================ */
