@@ -52,7 +52,7 @@ export default function Login() {
       <div className="login-image" aria-hidden="true"></div>
 
       <div className="login-form-wrapper">
-        <img src={savorlyLogo} alt="Savorly logo" className="login-logo" />
+        <Link to="/"><img src={savorlyLogo} alt="Savorly logo" className="login-logo" /></Link>
         <p className="subtitle">Log in to explore delicious recipes!</p>
 
         {error && (

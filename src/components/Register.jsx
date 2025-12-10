@@ -79,7 +79,7 @@ const Register = () => {
 
       <div className="register-form-section">
         <div className="brand">
-          <img src={logo} alt="Savorly Logo" className="logo" />
+          <Link to="/"><img src={logo} alt="Savorly Logo" className="logo" /></Link>
         </div>
         <p className="register-subtext">Join Savorly and explore amazing recipes!</p>
 
