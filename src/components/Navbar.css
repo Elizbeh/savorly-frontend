@@ -343,10 +343,15 @@
 @media (max-width: 480px) {
   .navbar-container {
     padding: 0 16px;
+    gap: 12px;
+  }
+
+  .logo {
+    padding: 4px 6px;
   }
 
   .logo-icon {
-    width: 50px;
+    width: 80px;
     height: 50px;
   }
 
