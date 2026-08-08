@@ -3,7 +3,7 @@
 
 **Savorly** is a full-stack recipe management web application that helps users discover, create, save, and share recipes in a secure, responsive interface.
 
-This repository contains the **frontend** of Savorly, built with **React.js (Vite)** and integrated with the [Savorly Backend API](https://savorly-backend-c6hu.onrender.com).
+This repository contains the **frontend** of Savorly, built with **React.js (Vite)** and integrated with the [Savorly Backend API](https://savorly.duckdns.org).
 
 It is deployed via **GitHub Pages** and supports authentication, admin access, and interactive UI features.
 
@@ -14,7 +14,7 @@ It is deployed via **GitHub Pages** and supports authentication, admin access, a
 
 -   **Frontend:** <https://Elizbeh.github.io/savorly-frontend>
 
--   **Backend API:** <https://savorly-backend-c6hu.onrender.com>
+-   **Backend API:** <https://savorly.duckdns.org>
 
 * * * * *
 
@@ -94,7 +94,7 @@ It is deployed via **GitHub Pages** and supports authentication, admin access, a
 Create a `.env` file in the project root (not committed):
 
 `LOCAL_HTTPS=true
-VITE_API_URL=https://savorly-backend-c6hu.onrender.com
+VITE_API_URL=https://savorly.duckdns.org
 VITE_CLIENT_URL=https://Elizbeh.github.io`
 
 * * * * *

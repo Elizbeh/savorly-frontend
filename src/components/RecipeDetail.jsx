@@ -54,7 +54,7 @@ const RecipeDetail = () => {
   const imageUrl = recipe.image_url
     ? recipe.image_url.startsWith('http')
       ? recipe.image_url
-      : `https://localhost:5001${recipe.image_url}`
+      : `https://savorly.duckdns.org${recipe.image_url}`
     : '/assets/default-recipe.png';
 
   return (
